@@ -49,7 +49,8 @@ def parse(infile,outfile):
             for col in range(0,sheet.ncols):
                 content = get_cells(sheet, row, col)
                 if content <> "":
-                    outfile.write("    " + unicode(xl.cellname(row,col)) + ": " + unicode(content) + "\n")
+                    towrite = ("    " + unicode(xl.cellname(row,col)) + ": " + unicode(content) + "\n")
+                    outfile.write(towrite.encode('utf-8'))
         print "\n"
 
 # output cell address and contents of cell
